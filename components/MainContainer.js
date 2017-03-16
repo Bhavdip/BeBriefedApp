@@ -7,12 +7,14 @@ import {
 } from 'react-native';
 
 import StatusScreen from './StatusScreen'
+import TabBarContainer from './TabBarContainer'
 
 export default class MainContainer extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <StatusScreen isUp={this.props.isUp}/>
+        <StatusScreen isUp={this.props.isUp} lastUpTime={this.props.lastUpTime}/>
+        <TabBarContainer/>
       </View>
     );
   }
@@ -20,6 +22,7 @@ export default class MainContainer extends Component {
 
 MainContainer.propTypes = {
   isUp:PropTypes.bool.isRequired,
+  lastUpTime: PropTypes.instanceOf(Date),
 }
 
 const styles = StyleSheet.create({

@@ -10,12 +10,18 @@ import {
   StyleSheet,
 } from 'react-native';
 import MainContainer from './components/MainContainer'
-const isUp = false
 
 export default class BeBriefedApp extends Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      isUp:true,
+      lastUpTime: new Date((new Date()).getTime() - 15*60*1000),
+    }
+  }
   render() {
     return (
-      <MainContainer isUp={isUp}/>
+      <MainContainer isUp={this.state.isUp} lastUpTime={this.state.lastUpTime}/>
     );
   }
 }
