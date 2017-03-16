@@ -23,7 +23,9 @@ export default class MainContainer extends Component {
     return (
       <View style={styles.container}>
         {this._renderTab(this.props.selectedService,this.props.services)}
-        <TabBarContainer onTabChange={this.props.onServiceChange}/>
+        <TabBarContainer
+          onTabChange={this.props.onServiceChange}
+          selectedService={this.props.selectedService}/>
       </View>
     );
   }
@@ -33,6 +35,7 @@ MainContainer.propTypes = {
   selectedService:PropTypes.string.isRequired,
   services:PropTypes.array.isRequired,
   onServiceChange:PropTypes.func.isRequired,
+  selectedService:PropTypes.string.isRequired,
 }
 
 const styles = StyleSheet.create({

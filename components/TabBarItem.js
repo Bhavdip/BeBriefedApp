@@ -11,8 +11,8 @@ import Icon from 'react-native-vector-icons/FontAwesome'
 
 const TabBarItem = (props) => (
   <View style={styles.container}>
-    <Icon name = {props.icon} style={styles.icon}/>
-    <Text style={styles.label}>{props.label}</Text>
+    <Icon name = {props.icon} style={[styles.icon, props.selected && styles.selectedIcon]}/>
+    <Text style={[styles.label, props.selected && styles.selectedlabel]}>{props.label}</Text>
   </View>
 );
 
@@ -30,6 +30,11 @@ const styles = StyleSheet.create({
   },
   icon:{
     color:'#ffffff',
+    fontSize:32,
+    paddingVertical:4,
+  },
+  selectedIcon:{
+    color:'#cc9766',
     fontSize:32,
     paddingVertical:4,
   },

@@ -11,6 +11,7 @@ const TabBarContainer = (props) => (
   <Tabs
     iconStyle={{ height: 72}}
     style={styles.tabContainer}
+    selected={props.selectedService}
     onSelect={ comp => props.onTabChange(comp.props.name)}
     >
     <TabBarItem name="web" label="web server" icon="server"/>
@@ -21,6 +22,7 @@ const TabBarContainer = (props) => (
 
 TabBarContainer.propTypes = {
  onTabChange:PropTypes.func.isRequired,
+ selectedService:PropTypes.string.isRequired,
 }
 
 const styles = StyleSheet.create({
