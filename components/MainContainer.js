@@ -10,19 +10,29 @@ import StatusScreen from './StatusScreen'
 import TabBarContainer from './TabBarContainer'
 
 export default class MainContainer extends Component {
+  _renderTab(selected,services){
+    const thisservice = services.find(s => s.key === selected)
+    return (
+      <StatusScreen
+       isUp={thisservice.isUp}
+       lastUpTime={thisservice.lastUpTime}
+       />
+    )
+  }
   render() {
     return (
       <View style={styles.container}>
-        <StatusScreen isUp={this.props.isUp} lastUpTime={this.props.lastUpTime}/>
-        <TabBarContainer/>
+        {this._renderTab(this.props.selectedService,this.props.services)}
+        <TabBarContainer onTabChange={this.props.onServiceChange}/>
       </View>
     );
   }
 }
 
 MainContainer.propTypes = {
-  isUp:PropTypes.bool.isRequired,
-  lastUpTime: PropTypes.instanceOf(Date),
+  selectedService:PropTypes.string.isRequired,
+  services:PropTypes.array.isRequired,
+  onServiceChange:PropTypes.func.isRequired,
 }
 
 const styles = StyleSheet.create({

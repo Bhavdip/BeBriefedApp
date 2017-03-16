@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
   },
   isUpBorderColor:{
     borderWidth:20,
-    borderColor:'#F21D44',
+    borderColor:'#00ced1',
     borderRadius:200,
     width:240,
     height:240,
@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     fontSize:160,
     textAlign:'center',
     backgroundColor:'rgba(0,0,0,0)',
-    color:'#BF1534',
+    color:'#008000',
   },
 });
 
